@@ -12,19 +12,20 @@ import xyz.megundo.aura.data.ApiResults
 
 interface GistApiService {
 
+
     @GET("anime.json")
-    fun getanimeData(): Single<ApiResults>
+    fun getanimeData(): Single<List<ApiResults>>
 
     companion object RetrofitProvider {
-        val baseUrl="https://gist.githubusercontent.com/aws1994/f583d54e5af8e56173492d3f60dd5ebf/raw/c7796ba51d5a0d37fc756cf0fd14e54434c547bc/"
+        val baseUrl = "https://gist.githubusercontent.com/aws1994/f583d54e5af8e56173492d3f60dd5ebf/raw/c7796ba51d5a0d37fc756cf0fd14e54434c547bc/"
 
         fun provideRetrofit(): GistApiService {
 
-        /* using this Okhttp logging service for purposes of debugging , not intended for production */
+            /* using this Okhttp logging service for purposes of debugging , not intended for production */
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
 
-            val okHttpClient= OkHttpClient.Builder()
+            val okHttpClient = OkHttpClient.Builder()
                     .addInterceptor(interceptor)
                     .build()
 
@@ -37,4 +38,5 @@ interface GistApiService {
 
             return retrofit.create(GistApiService::class.java);
         }
+    }
 }
