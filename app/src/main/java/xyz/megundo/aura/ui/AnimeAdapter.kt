@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import xyz.megundo.aura.R
 import xyz.megundo.aura.data.ApiResults
 
@@ -24,7 +25,13 @@ class AnimeAdapter(private val myDataset: List<ApiResults>) :
             animeName.text = item.name
             animeEpisode.text = "Episode: " + item.episode
 
+
             //Todo use glide to load image
+
+            Glide.with(this)
+                    .load(item.img)
+                    .into(animeImage)
+
 
 
         }

@@ -35,6 +35,7 @@ ext {
     rxAndroidVersion = '2.0.1'
     rxBindingVersion = '2.0.0'
     loggingInterceptorVersion='3.9.0'
+    glideVersion='4.7.1'
 
 }
 
